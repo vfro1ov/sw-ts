@@ -6,7 +6,7 @@ import { getPeopleImg,getPeopleId } from '../../services/getPeopleData';
 
 const PeoplePage: FunctionComponent<PeoplePageProps> = () => {
 	// const {} = props;
-	const [people, setPeople] = useState<any[]>([]);
+	const [people, setPeople] = useState<string[]>([]);
 	const [peopleInfo, setPeopleInfo] = useState<any[]>([]);
 	const getResponse = async (url: string) => {
 		const res = await getApiResource(url);
@@ -23,7 +23,6 @@ const PeoplePage: FunctionComponent<PeoplePageProps> = () => {
 					img
 				};
 			});
-			console.log(res);
 			setPeople(peopleList);
 		}
 	};
