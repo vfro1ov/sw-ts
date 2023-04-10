@@ -6,10 +6,10 @@ const PeopleList: FunctionComponent<PeopleListProps> = ({ people }):JSX.Element 
 
 	return (
 		<div className='cards'>
-			{people && people.map(({id,img}) => (
+			{people && people.map((people:any) => (
 				<div className='card_item'>
-					<Link to={`/people/${id}`}>
-					<img src={img} alt="omg" />
+					<Link to={`/people/${people.id}`}>
+					<img src={people.img} alt="omg" />
 					</Link>
 					<li key={people.id}>{people.name}</li>
 					<li>{people.gender}</li>

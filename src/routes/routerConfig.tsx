@@ -7,7 +7,7 @@ export const routerConfig:RouterConfigProps[]= [
 	element: PeoplePage,
 },
 {
-	path: '/people:id',
+	path: '/people/:id',
 	element: PersonPage,
 }
 ]
