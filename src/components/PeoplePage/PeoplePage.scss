@@ -1,0 +1,26 @@
+.cards {
+	margin: auto;
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(5,1fr);
+
+}
+.card_item {
+	margin: auto;
+	margin-top: 20px;
+	border: 1px solid black;
+	width: 200px;
+	background-color: #5a4d4d;
+	li {
+		list-style: none;
+		justify-content: center;
+		align-items:flex-end;
+	}
+	img {
+		width: 200px;
+		height: 200px;
+	}
+	img:hover {
+	
+	}
+}
