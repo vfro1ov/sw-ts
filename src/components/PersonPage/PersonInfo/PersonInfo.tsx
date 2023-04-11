@@ -4,7 +4,7 @@ const PersonInfo: FunctionComponent<PersonInfoProps> = (props) => {
 	const { personInfo } = props;
 	return (
 		<div className="card_info">
-			{personInfo?.map((info) => (
+			{personInfo?.map((info:any) => (
 				<li>
 					{info.title}:{info.data}
 				</li>

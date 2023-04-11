@@ -8,6 +8,8 @@ import PersonInfo from '../../components/PersonPage/PersonInfo';
 import './PersonPage.scss';
 const PersonPage: FunctionComponent<PersonPageProps> = (props) => {
 	const {} = props;
+
+
 	// const [person, setPerson] = useState<any[]>([]);
 	const [personInfo, setPersonInfo] = useState<any>();
 	const [personFilm, setPersonFilm] = useState<any>();
