@@ -14,7 +14,7 @@ const Nav: FunctionComponent<NavProps> = (props) => {
 					<Link to={'/'}>Home</Link>
 				</li>
 				<li className='navbar-link'>
-					<Link to={'/people'}>People</Link>
+					<Link to={'/people/?page=1'}>People</Link>
 				</li>
 			</ul>
 		</div>

@@ -6,16 +6,24 @@ import PersonFilm from '../../components/PersonPage/PersonFilm';
 import PersonInfo from '../../components/PersonPage/PersonInfo';
 
 import './PersonPage.scss';
+import { getPeopleImg } from '../../services/getPeopleData';
+import PersonPhoto from '../../components/PersonPage/PersonPhoto';
 const PersonPage: FunctionComponent<PersonPageProps> = (props) => {
 	const {} = props;
 
 
 	// const [person, setPerson] = useState<any[]>([]);
 	const [personInfo, setPersonInfo] = useState<any>();
+	const [personName, setPersonName] = useState<string>();
+	const [personPhoto, setPersonPhoto] = useState<string>();
 	const [personFilm, setPersonFilm] = useState<any>();
-	const [personId, setPersonId] = useState<string | undefined>();
+	const [personId, setPersonId] = useState<string>();
 
-	const { id } = useParams();
+	type IdParams = {
+		id: string;
+	}
+
+	const { id } = useParams() as { id: string };
 
 	useEffect(() => {
 		(async () => {
@@ -30,12 +38,18 @@ const PersonPage: FunctionComponent<PersonPageProps> = (props) => {
 				{ title: 'Mass', data: res.mass },
 			]);
 			setPersonFilm(res.films);
+			setPersonPhoto(getPeopleImg(id))
+			setPersonName(res.name)
+			console.log(res)
 		})();
 	}, [id]);
 
 	return (
-		<div>
-			<div className='person_wrapper'>
+			<div className='person'>
+				<div className="person_photo">
+					<h3>{personName}</h3>
+					<PersonPhoto personPhoto={personPhoto}/>
+				</div>
 				<div className='person_info'>
 					<h3>Info</h3>
 				<PersonInfo personInfo={personInfo} />
@@ -45,10 +59,10 @@ const PersonPage: FunctionComponent<PersonPageProps> = (props) => {
 				<PersonFilm personFilm={personFilm} />
 				</div>
 			</div>
-		</div>
 	);
 };
 
-export interface PersonPageProps {}
+export interface PersonPageProps {
+}
 
 export default PersonPage;

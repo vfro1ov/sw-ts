@@ -1,18 +1,24 @@
-.person_wrapper{
-	width: 600px;
+.person{
+	margin: auto;
+	width: 800px;
 	display: grid;
-	grid-template-columns: repeat(3,2fr);
-}
-.person_info{
-	h3{
-		width: 200px;
-		margin-left: 100px;
+	grid-template-columns: repeat(3,1fr);	
+	&_info{
+		h3{
+			margin-left: 100px;
+		}
 	}
-}
-
-.person_films{
-	h3{
-		width: 200px;
-		margin-left: 100px;
+	
+	&_films{
+		h3{
+			margin-left: 100px;
+		}
+	}
+	&_photo {
+		h3 {
+		}
+		img {
+			width: 200px;
+		}
 	}
 }
