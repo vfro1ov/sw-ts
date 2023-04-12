@@ -2,9 +2,11 @@
 export const SWAPI_BASE = 'https://swapi.dev/api/';
 export const SWAPI_PEOPLE = 'people';
 export const SWAPI_PARAM_PAGE = '/?page=';
+export const SWAPI_PARAM_SEARCH ='/?search=';
 
 export const API_PEOPLE = SWAPI_BASE + SWAPI_PEOPLE+SWAPI_PARAM_PAGE;
 export const API_PERSON = SWAPI_BASE + SWAPI_PEOPLE;
+export const API_SEARCH = SWAPI_BASE+SWAPI_PEOPLE+SWAPI_PARAM_SEARCH
 
 //GUIDE
 const GUIDE_BASE_IMG = 'https://starwars-visualguide.com/assets/img/';

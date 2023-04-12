@@ -1,6 +1,6 @@
 import { FunctionComponent, useEffect, useState } from 'react';
 import { makeConCorrentRequest } from '../../../utils/network';
-import './PersonFilm.scss'
+import './PersonFilm.scss';
 const PersonFilm: FunctionComponent<PersonFilmProps> = (props) => {
 	const { personFilm } = props;
 	const [film, setFilm] = useState<any[]>();
@@ -12,10 +12,14 @@ const PersonFilm: FunctionComponent<PersonFilmProps> = (props) => {
 	});
 
 	return (
-		<div className='card_film'>
-			{film?.map(({ title }) => (
-				<li>{title}</li>
-			))}
+		<div className="card_film">
+			{film
+				?.sort((a, z) => a.episode_id - z.episode_id)
+				.map(({ title, episode_id }) => (
+					<li key={episode_id}>
+						Episode {episode_id} - {title} 
+					</li>
+				))}
 		</div>
 	);
 };

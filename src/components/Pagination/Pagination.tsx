@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import './Pagination.scss';
 
 const Pagination: FunctionComponent<PaginationProps> = (props) => {
-	const { counterPage, prev, next, getResponse } = props;
+	const { counterPage, prev, next, getResponse} = props;
+
+
 
 	const handlePrev = () => {
 		getResponse(prev);
@@ -11,18 +13,24 @@ const Pagination: FunctionComponent<PaginationProps> = (props) => {
 	const handleNext = () => {
 		getResponse(next);
 	};
+
 	return (
-		<div>
-			<div className='pagination_page'>
-				<Link to={`?page=${counterPage - 1}`}>
-					<button onClick={handlePrev} disabled={!prev}>PREV</button>
-				</Link>
-			</div>
-			<div className='pagination_page'>
-			<Link to={`?page=${counterPage + 1}`}>
-				<button onClick={handleNext} disabled={!next}> NEXT</button>
-			</Link>
-			</div>
+		<div className='pagination'>
+				<div className="pagination_page">
+						<Link to={`?page=${counterPage - 1}`}>
+							<button onClick={handlePrev} disabled={!prev}>
+								PREV
+							</button>
+						</Link>
+				
+				
+						<Link to={`?page=${counterPage + 1}`}>
+							<button onClick={handleNext} disabled={!next}>
+								{' '}
+								NEXT
+							</button>
+						</Link>
+				</div>
 		</div>
 	);
 };

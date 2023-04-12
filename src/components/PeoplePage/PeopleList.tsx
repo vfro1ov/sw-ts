@@ -1,8 +1,8 @@
 import { FunctionComponent } from 'react';
 import './PeoplePage.scss'
 import { Link } from 'react-router-dom';
-const PeopleList: FunctionComponent<PeopleListProps> = ({ people }):JSX.Element => {
-	// const {} = props;
+const PeopleList: FunctionComponent<PeopleListProps> = ( props ):JSX.Element => {
+	const {people} = props;
 	return (
 		<div className='cards'>
 			{people && people.map((people:any) => (
@@ -10,8 +10,7 @@ const PeopleList: FunctionComponent<PeopleListProps> = ({ people }):JSX.Element 
 					<Link to={`/people/${people.id}`}>
 					<img src={people.img} alt="omg" />
 					</Link>
-					<li>{people.name}</li>
-					<li>{people.gender}</li>
+					<h3>{people.name}</h3>
 				</div>
 			))}
 		</div>

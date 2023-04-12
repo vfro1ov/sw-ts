@@ -1,4 +1,11 @@
-.pagination_page{
+.pagination {
+	margin: auto;
 	width: 200px;
-	margin: 0;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+
+	&_page{
+		width: 200px;
+		margin: 0;
+	}
 }
