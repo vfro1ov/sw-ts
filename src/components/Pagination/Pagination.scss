@@ -4,8 +4,19 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 
-	&_page{
+	&_page {
 		width: 200px;
-		margin: 0;
+		margin: 0 auto;
+		button {
+			height: 70%;
+			justify-content: center;
+			text-align: center;
+			width: 70%;
+			margin-left: 20px;
+			border-bottom-right-radius: 22%;
+		}
+		button:hover {
+			background-color: rgb(48, 115, 204);
+		}
 	}
 }

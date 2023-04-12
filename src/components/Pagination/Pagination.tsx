@@ -16,8 +16,8 @@ const Pagination: FunctionComponent<PaginationProps> = (props) => {
 
 	return (
 		<div className='pagination'>
-				<div className="pagination_page">
-						<Link to={`?page=${counterPage - 1}`}>
+				<div className="pagination_page ">
+						<Link to={`?page=${counterPage - 1}`} >
 							<button onClick={handlePrev} disabled={!prev}>
 								PREV
 							</button>
@@ -25,7 +25,7 @@ const Pagination: FunctionComponent<PaginationProps> = (props) => {
 				
 				
 						<Link to={`?page=${counterPage + 1}`}>
-							<button onClick={handleNext} disabled={!next}>
+							<button  onClick={handleNext} disabled={!next}>
 								{' '}
 								NEXT
 							</button>

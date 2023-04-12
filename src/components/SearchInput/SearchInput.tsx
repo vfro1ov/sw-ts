@@ -1,4 +1,5 @@
 import { FunctionComponent } from 'react';
+import './SearchInput.scss'
 
 const SearchInput: FunctionComponent<SearchInputProps> = (props) => {
 	const { search, setSearchParam , getResponse} = props;
@@ -11,7 +12,7 @@ const SearchInput: FunctionComponent<SearchInputProps> = (props) => {
 	};
 
 	return (
-		<div>
+		<div className='search_input'>
 			<input
 				type="text"
 				placeholder="Write the name of the character..."
