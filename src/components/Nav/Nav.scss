@@ -1,0 +1,25 @@
+.navbar {
+	width: 100%;
+	margin: 0;
+	height: 60px;
+	display: flex;
+	ul {
+		margin: 20px;
+		padding: 0;
+
+	}
+	li {
+		display: inline-block;
+		margin: 5px;
+	}
+	a {
+		text-decoration: none;
+	}
+	&-links {
+		margin: 0;
+		width: 200px;
+	}
+	&_link {
+
+	}
+}

@@ -1,15 +1,17 @@
 .cards {
-	margin: 0;
+	margin: auto;
+	margin-left: 20px;
 	margin-top: 20px;
-	border: 2px solid black;
+	// border: 2px solid black;
 	width: 100%;
 	display: grid;
-	grid-template-columns: repeat(5,1fr);
+	grid-template-columns: repeat(5, 1fr);
+
 }
 .card_items {
 	margin: 10px;
 	width: 300px;
-	box-shadow: 10px 5px 5px rgb(43, 41, 41);
+	// box-shadow: 10px 5px 5px rgb(43, 41, 41);
 	border-bottom-right-radius: 12%;
 	img {
 		margin-left: 50px;
@@ -18,35 +20,53 @@
 		border-radius: 50%;
 		width: 200px;
 		height: 200px;
+		box-shadow: 10px 5px 5px rgb(43, 41, 41);
 	}
+}
+.card_circle {
+	border: solid rgb(72, 180, 241);
+	background-color: #0ec41d;
+	margin: 0;
+	width: 20px;
+	height: 20px;
+	display: flex;
+	border-radius: 50%;
+	// box-shadow: #1f1d1d;
+	box-shadow: 5px 2px 2px rgb(43, 41, 41);
 
-	
 }
 .card_name {
+	margin-top: 20px;
+	margin-left: 40px;
+	display: flex;
+	width: 40px;
 	h3 {
+		position: absolute;
 		display: flex;
 		margin: auto;
-		border: solid rgb(72, 180, 241);
-		background-color: #18b8e9;
-		border-radius: 30% 70%;
+		margin-left: 10px;
+		padding: 0;
+		color:#161816;
+		// border: solid rgb(72, 180, 241);
+		// background-color: #18b8e9;
+		// border-radius: 30% 70%;
 		width: 200px;
-		height: 20px;
+		height: 0;
 		text-shadow: #1f1d1d;
 		align-items: center;
 		justify-content: center;
 	}
-	:hover {
-		// background-color: #18b8e9;
-	}
 }
 .card_item {
 	background-color: #f3eeee;
-	border-left: 2px solid black;
+	border-left: 12px solid black;
+	border-right: 12px solid black;
 	width: 300px;
-	height: 400px;
-	border-bottom-right-radius: 12%;
+	height: 300px;
+	// border-bottom-right-radius: 12%;
+	border-radius: 50%;
 
 }
-.card_items :hover{
+.card_items :hover {
 	background-color: #4d81e2;
 }

@@ -9,6 +9,8 @@ import { useQueryParams } from '../../hooks/useQueryParams';
 import Pagination from '../../components/Pagination';
 import SearchInput from '../../components/SearchInput';
 
+import './PeoplePage.scss';
+
 const PeoplePage: FunctionComponent<PeoplePageProps> = () => {
 	// const {} = props;
 	const query = useQueryParams();
@@ -47,7 +49,7 @@ const PeoplePage: FunctionComponent<PeoplePageProps> = () => {
 	}, [queryPage]);
 	return (
 		<div>
-			<div>
+			<div className='people_control'>
 				{<SearchInput search={search} setSearchParam={setSearchParam} getResponse={getResponse} />}
 				<Pagination counterPage={counterPage} prev={prev} next={next} getResponse={getResponse} />
 			</div>
