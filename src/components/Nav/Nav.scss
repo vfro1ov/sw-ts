@@ -15,11 +15,16 @@
 	a {
 		text-decoration: none;
 	}
-	&-links {
+	&_links {
 		margin: 0;
 		width: 200px;
 	}
 	&_link {
 
+	}
+	&_modal{
+		display: flex;
+		flex-direction: column;
+		justify-content:flex-end;
 	}
 }
