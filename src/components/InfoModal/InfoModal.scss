@@ -8,22 +8,23 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	/* transform: scale(0); */
+// transform: scale(0);
 	opacity: 0;
 	pointer-events: none;
 	transition: 0.5s;
 }
 
 .modal.active {
-	/* transform: scale(1); */
-	pointer-events:all;
-	opacity: 1;
+	// transform: scale(1);
+	pointer-events: all;
+	opacity:1;
+
 }
 
 .modal__content {
 	padding: 20px;
 	border-radius: 12px;
-	background-color: #fff;
+	background-color: #ffffff;
 	height: 400px;
 	width: 500px;
 	transform: scale(0.5);
@@ -31,7 +32,6 @@
 }
 
 .modal__content.active {
-	/* opacity:1; */
+	// opacity: 1;
 	transform: scale(1);
-
 }
