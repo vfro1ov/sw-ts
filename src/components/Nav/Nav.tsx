@@ -1,6 +1,7 @@
 import { FunctionComponent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import R2D2 from './img/r2d2.svg';
+import SW from './img/starwars.svg';
 import './Nav.scss';
 import InfoModal from '../InfoModal';
 
@@ -9,8 +10,8 @@ const Nav: FunctionComponent<NavProps> = (props) => {
 	const [modalActive,setModalActive] = useState<boolean>(false)
 	return (
 		<nav className="navbar">
-			<div className="logo">
-				<h1>StarWars Fun</h1>
+			<div className="navbar_logo">
+				<img src={SW} alt="sw" />
 			</div>
 			<div className="navbar_links">
 				<ul className='navbar_link'>

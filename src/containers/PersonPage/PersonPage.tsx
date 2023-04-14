@@ -8,6 +8,7 @@ import PersonInfo from '../../components/PersonPage/PersonInfo';
 import './PersonPage.scss';
 import { getPeopleImg } from '../../services/getPeopleData';
 import PersonPhoto from '../../components/PersonPage/PersonPhoto';
+import LinkBack from '../../components/LinkBack';
 const PersonPage: FunctionComponent<PersonPageProps> = (props) => {
 	const {} = props;
 
@@ -46,6 +47,7 @@ const PersonPage: FunctionComponent<PersonPageProps> = (props) => {
 
 	return (
 			<div className='person'>
+				<LinkBack />
 				<div className="person_photo">
 					<h3>{personName}</h3>
 					<PersonPhoto personPhoto={personPhoto}/>

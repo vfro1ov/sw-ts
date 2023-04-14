@@ -27,4 +27,11 @@
 		display: flex;
 		justify-content:flex-start;
 	}
+	&_logo {
+		margin-top: 15px;
+		width: 100px;
+		display: flex;
+		justify-content: flex-end;
+	
+	}
 }
