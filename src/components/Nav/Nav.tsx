@@ -21,6 +21,9 @@ const Nav: FunctionComponent<NavProps> = (props) => {
 					<li>
 						<Link to={'/people/?page=1'}>People</Link>
 					</li>
+					<li>
+						<Link to={'/favorites'}>Favorites</Link>
+					</li>
 				</ul>
 			</div>
 			<div className='navbar_modal'>

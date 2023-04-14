@@ -1,9 +1,13 @@
 import PersonPage from "../containers/PersonPage";
 import HomePage from "../containers/HomePage";
 import PeoplePage from "../containers/PeoplePage";
+import FavoritesPage from "../containers/FavoritesPage/FavoritesPage";
 
 export const routerConfig:RouterConfigProps[]= [
-
+	{
+		path: '/favorites',
+		element: FavoritesPage,
+	},
 {
 	path: '/people',
 	element: PeoplePage,

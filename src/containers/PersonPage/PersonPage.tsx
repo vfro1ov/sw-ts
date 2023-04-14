@@ -1,35 +1,41 @@
-import { FunctionComponent, useEffect, useState } from 'react';
-import { getApiResource } from '../../utils/network';
+import { FunctionComponent,  useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { getApiResource } from '../../utils/network';
 import { API_PERSON } from '../../constants/api';
 import PersonFilm from '../../components/PersonPage/PersonFilm';
 import PersonInfo from '../../components/PersonPage/PersonInfo';
-
-import './PersonPage.scss';
 import { getPeopleImg } from '../../services/getPeopleData';
 import PersonPhoto from '../../components/PersonPage/PersonPhoto';
 import LinkBack from '../../components/LinkBack';
+
+import './PersonPage.scss';
+
+
 const PersonPage: FunctionComponent<PersonPageProps> = (props) => {
+
+
 	const {} = props;
 
+const storeData = useSelector((state:any) => state.favoriteReducer)
 
-	// const [person, setPerson] = useState<any[]>([]);
+	const [personFavorites, setPersonFavorites] = useState(false);
 	const [personInfo, setPersonInfo] = useState<any>();
 	const [personName, setPersonName] = useState<string>();
 	const [personPhoto, setPersonPhoto] = useState<string>();
 	const [personFilm, setPersonFilm] = useState<any>();
 	const [personId, setPersonId] = useState<string>();
 
-	type IdParams = {
-		id: string;
-	}
 
 	const { id } = useParams() as { id: string };
+
 
 	useEffect(() => {
 		(async () => {
 			const res = await getApiResource(`${API_PERSON}/${id}/`);
 			setPersonId(id);
+			storeData[id] ? setPersonFavorites(true) : setPersonFavorites(false)
+
 			setPersonInfo([
 				{ title: 'Name', data: res.name },
 				{ title: 'Gender', data: res.gender },
@@ -50,7 +56,11 @@ const PersonPage: FunctionComponent<PersonPageProps> = (props) => {
 				<LinkBack />
 				<div className="person_photo">
 					<h3>{personName}</h3>
-					<PersonPhoto personPhoto={personPhoto}/>
+					<PersonPhoto personPhoto={personPhoto} 
+					personFavorites={personFavorites} 
+					setPersonFavorites={setPersonFavorites} 
+					personId={personId}
+					personName={personName} />
 				</div>
 				<div className='person_info'>
 					<h3>Info</h3>
