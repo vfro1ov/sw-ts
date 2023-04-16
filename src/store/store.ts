@@ -1,14 +1,14 @@
-import {configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import {configureStore } from '@reduxjs/toolkit';
+import favorites from './features/favorites';
 // import rootReduser from './redusers'
-import { setLocalStorage } from '../utils/localStorage';
-import favoriteReducer from './redusers/favoriteReduser';
 const store = configureStore({
 	reducer:{
-		favoriteReducer:favoriteReducer
+		favorites:favorites
 	},
-	middleware: getDefaultMiddleware => getDefaultMiddleware({})
+	devTools:true
 })
-store.subscribe(() => {
-	setLocalStorage('store',store.getState().favoriteReducer)
-});
+
 export default store;
+
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
