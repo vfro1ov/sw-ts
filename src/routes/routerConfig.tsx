@@ -1,7 +1,7 @@
 import PersonPage from "../containers/PersonPage";
 import HomePage from "../containers/HomePage";
 import PeoplePage from "../containers/PeoplePage";
-import FavoritesPage from "../containers/FavoritesPage/FavoritesPage";
+import FavoritesPage from "../containers/FavoritesPage";
 
 export const routerConfig:RouterConfigProps[]= [
 	{

@@ -1,15 +1,18 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 import type { RootState } from '../store'
 
-interface FavoriteState {
-  name: string;
-	img: string;
+interface Person {
+  id: string;
+	name: string;
+	photo: string;
+}
+interface State {
+	favorite: { [key: string]: Person };
 }
 
 // Define the initial state using that type
-const initialState: FavoriteState = {
-  name: '',
-	img: '',
+const initialState: State = {
+	favorite: {},
 }
 
 export const FavoriteSlice = createSlice({
@@ -17,17 +20,18 @@ export const FavoriteSlice = createSlice({
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    setFavorites: (state) => {
+    setFavorites: (state, action) => {
+			const person = action.payload;
+      state.favorite[person.id] = person;
     },
-    removeFavorites: (state) => {
-    },
-    // Use the PayloadAction type to declare the contents of `action.payload`
-    incrementByAmount: (state, action: PayloadAction<any>) => {
+    removeFavorites: (state,action) => {
+			const personId = action.payload;
+			delete state.favorite[personId];
     },
   },
 })
 
-export const { setFavorites, removeFavorites, incrementByAmount } = FavoriteSlice.actions
+export const { setFavorites, removeFavorites } = FavoriteSlice.actions
 
 export const selectFavorite = (state: RootState) => state.favorites
 

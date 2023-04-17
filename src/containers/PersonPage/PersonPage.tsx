@@ -15,9 +15,9 @@ import './PersonPage.scss';
 const PersonPage: FunctionComponent<PersonPageProps> = (props) => {
 
 
-	const {} = props;
+	// const {} = props;
 
-const storeData = useSelector((state:any) => state.favoriteReducer)
+const storeData = useSelector((state:any) => state.favorites)
 
 	const [personFavorites, setPersonFavorites] = useState(false);
 	const [personInfo, setPersonInfo] = useState<any>();
@@ -49,7 +49,7 @@ const storeData = useSelector((state:any) => state.favoriteReducer)
 			setPersonName(res.name)
 			console.log(res)
 		})();
-	}, [id]);
+	}, [id,storeData]);
 
 	return (
 			<div className='person'>

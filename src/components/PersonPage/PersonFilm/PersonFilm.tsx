@@ -9,7 +9,7 @@ const PersonFilm: FunctionComponent<PersonFilmProps> = (props) => {
 			const res = await makeConCorrentRequest(personFilm);
 			setFilm(res);
 		})();
-	});
+	},[personFilm]);
 
 	return (
 		<div className="card_film">

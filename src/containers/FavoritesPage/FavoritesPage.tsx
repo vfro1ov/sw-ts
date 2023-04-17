@@ -4,24 +4,22 @@ import PeopleList from '../../components/PeoplePage/PeopleList';
 
 const FavoritesPage: FunctionComponent<FavoritesPageProps> = (props) => {
 	const {} = props;
-	const [people, setPeople] = useState([]);
+	// const [people, setPeople] = useState<any>();
 
-	const storeData = useSelector((state: any) => state.favoriteReducer);
-
-	useEffect(() => {
-		const arr = Object.entries(storeData);
-		if (arr.length) {
-			const res: any = arr.map((item: any) => {
-				return {
-					id: item[0],
-					name: item[1],
-					img: item[1],
-				};
-			}, []);
-			setPeople(res);
-		}
-	});
-
+	const storeData = useSelector((state: any) => state.favorites);
+	const people:string[] = Object.values(storeData.favorites)
+	// const arr = Object.entries(storeData.favorites);
+	// if (arr.length) {
+	// 	const res: any = arr.map((item) => {
+	// 		return {
+	// 			id:item[1]
+	// 		};
+	// 	}, [people]);
+	// 	setPeople(res);
+	// }
+	// useEffect(() => {
+		
+	// });
 	return <div>{people.length ? <PeopleList people={people} /> : <h2>Not favorites</h2>}</div>;
 };
 
