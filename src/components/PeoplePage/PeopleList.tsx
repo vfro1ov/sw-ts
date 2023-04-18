@@ -7,7 +7,7 @@ const PeopleList: FunctionComponent<PeopleListProps> = (props): JSX.Element => {
 	return (
 		<div className="cards">
 			{people &&
-				people.map((people: any) => (
+				people.map(people => (
 					<Link to={`/people/${people.id}`}>
 						<div className="card_items" key={people.id}>
 							<div className="card_item">

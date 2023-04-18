@@ -1,7 +1,8 @@
 import { FunctionComponent,  useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getApiResource } from '../../utils/network';
+import { useAppSelector } from '../../store/hooks.ts/storeHooks';
+
 import { API_PERSON } from '../../constants/api';
 import PersonFilm from '../../components/PersonPage/PersonFilm';
 import PersonInfo from '../../components/PersonPage/PersonInfo';
@@ -17,14 +18,15 @@ const PersonPage: FunctionComponent<PersonPageProps> = (props) => {
 
 	// const {} = props;
 
-const storeData = useSelector((state:any) => state.favorites)
+const storeData = useAppSelector(state => state.favorites.favorite)
+
 
 	const [personFavorites, setPersonFavorites] = useState(false);
 	const [personInfo, setPersonInfo] = useState<any>();
-	const [personName, setPersonName] = useState<string>();
-	const [personPhoto, setPersonPhoto] = useState<string>();
+	const [personName, setPersonName] = useState('');
+	const [personPhoto, setPersonPhoto] = useState('');
 	const [personFilm, setPersonFilm] = useState<any>();
-	const [personId, setPersonId] = useState<string>();
+	const [personId, setPersonId] = useState('');
 
 
 	const { id } = useParams() as { id: string };
@@ -33,8 +35,9 @@ const storeData = useSelector((state:any) => state.favorites)
 	useEffect(() => {
 		(async () => {
 			const res = await getApiResource(`${API_PERSON}/${id}/`);
-			setPersonId(id);
 			storeData[id] ? setPersonFavorites(true) : setPersonFavorites(false)
+
+			setPersonId(id);
 
 			setPersonInfo([
 				{ title: 'Name', data: res.name },

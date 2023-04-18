@@ -1,11 +1,10 @@
 import {configureStore } from '@reduxjs/toolkit';
-import favorites from './features/favorites';
+import favoritesReducer from './features/favorites';
 // import rootReduser from './redusers'
 const store = configureStore({
 	reducer:{
-		favorites:favorites
+		favorites:favoritesReducer
 	},
-	devTools:true
 })
 
 export default store;

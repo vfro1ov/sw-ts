@@ -1,23 +1,29 @@
 import { FunctionComponent, useState } from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { removeFavorites, setFavorites } from '../../../store/features/favorites';
 import rebel from './img/rebel.svg';
 import rebelFill from './img/rebel_fill.svg';
-import store from '../../../store/store';
-
+import { useAppDispatch } from '../../../store/hooks.ts/storeHooks';
 
 const PersonPhoto: FunctionComponent<PersonPhotoProps> = (props) => {
 	const { personPhoto, personFavorites, setPersonFavorites, personId, personName } = props;
-	// const [isFavorite, setIsFavorite] = useState(false);
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 
 	const dispatchFavoritePeople = () => {
 		if (personFavorites) {
-			store.dispatch(removeFavorites(personId))}
-			else {
-				store.dispatch(setFavorites({ id: personId, name: personName, photo: personPhoto }));
-			}
-			setPersonFavorites(!personFavorites);
+			dispatch(removeFavorites(personId));
+			setPersonFavorites(false);
+		} else {
+			dispatch(
+				setFavorites({
+					[personId]: {
+						name: personName,
+						img: personPhoto,
+					},
+				}),
+			);
+			setPersonFavorites(true);
+		}
 	}
 
 	return (
@@ -35,10 +41,10 @@ const PersonPhoto: FunctionComponent<PersonPhotoProps> = (props) => {
 };
 
 export interface PersonPhotoProps {
-	personPhoto: any;
+	personPhoto: string;
 	setPersonFavorites: any;
-	personFavorites: any;
-	personId: any;
-	personName: any;
+	personFavorites: boolean;
+	personId: string;
+	personName: string;
 }
 export default PersonPhoto;

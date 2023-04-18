@@ -20,7 +20,7 @@ const PeoplePage: FunctionComponent<PeoplePageProps> = () => {
 	const [counterPage, setCounterPage] = useState(1);
 	const [prev, setPrev] = useState(null);
 	const [next, setNext] = useState(null);
-	const [people, setPeople] = useState<string[]>([]);
+	const [people, setPeople] = useState<string[]>();
 
 	
 
@@ -53,7 +53,7 @@ const PeoplePage: FunctionComponent<PeoplePageProps> = () => {
 				{<SearchInput search={search} setSearchParam={setSearchParam} getResponse={getResponse} />}
 				<Pagination counterPage={counterPage} prev={prev} next={next} getResponse={getResponse} />
 			</div>
-				<PeopleList people={people} />;
+				<PeopleList people={people} />
 		</div>
 	);
 };

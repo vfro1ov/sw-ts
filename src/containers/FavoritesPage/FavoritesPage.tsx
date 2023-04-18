@@ -1,26 +1,29 @@
 import { FunctionComponent, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import PeopleList from '../../components/PeoplePage/PeopleList';
+import { useAppSelector } from '../../store/hooks.ts/storeHooks';
 
 const FavoritesPage: FunctionComponent<FavoritesPageProps> = (props) => {
 	const {} = props;
-	// const [people, setPeople] = useState<any>();
 
-	const storeData = useSelector((state: any) => state.favorites);
-	const people:string[] = Object.values(storeData.favorites)
-	// const arr = Object.entries(storeData.favorites);
-	// if (arr.length) {
-	// 	const res: any = arr.map((item) => {
-	// 		return {
-	// 			id:item[1]
-	// 		};
-	// 	}, [people]);
-	// 	setPeople(res);
-	// }
-	// useEffect(() => {
-		
-	// });
-	return <div>{people.length ? <PeopleList people={people} /> : <h2>Not favorites</h2>}</div>;
+	const storeData = useAppSelector((state) => state.favorites);
+
+	const [people, setPeople] = useState<any>();
+	const arr  = Object.entries(storeData);
+	console.log(arr);
+	useEffect(()=> {
+		const arr = Object.entries(storeData);
+		if (arr.length) {
+			const res = arr.map((item:any)=> {
+				return {
+					id: item
+				}
+			})
+			console.log(res)
+		setPeople(res)
+		}
+	},[])
+	return <div>{people?.length === 0 ? <PeopleList people={people} /> : <h2>Not Favorites</h2>}</div>;
 };
 
 export interface FavoritesPageProps {}
