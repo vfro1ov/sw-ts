@@ -19,7 +19,7 @@ const PersonPage: FunctionComponent<PersonPageProps> = (props) => {
 	// const {} = props;
 
 const storeData = useAppSelector(state => state.favorites.favorite)
-
+console.log(storeData)
 
 	const [personFavorites, setPersonFavorites] = useState(false);
 	const [personInfo, setPersonInfo] = useState<any>();
@@ -35,9 +35,10 @@ const storeData = useAppSelector(state => state.favorites.favorite)
 	useEffect(() => {
 		(async () => {
 			const res = await getApiResource(`${API_PERSON}/${id}/`);
-			storeData[id] ? setPersonFavorites(true) : setPersonFavorites(false)
 
 			setPersonId(id);
+			storeData[id] ? setPersonFavorites(true) : setPersonFavorites(false)
+
 
 			setPersonInfo([
 				{ title: 'Name', data: res.name },
