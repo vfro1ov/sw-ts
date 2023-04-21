@@ -1,25 +1,30 @@
 import { FunctionComponent } from 'react';
-import './PeoplePage.scss'
+// import Sw from './img/starwars.png';
+import './PeopleList.scss';
 import { Link } from 'react-router-dom';
-const PeopleList: FunctionComponent<PeopleListProps> = ({ people }):JSX.Element => {
-	// const {} = props;
+const PeopleList: FunctionComponent<PeopleListProps> = (props): JSX.Element => {
+	const { people } = props;
 	return (
-		<div className='cards'>
-			{people && people.map((people:any) => (
-				<div className='card_item' key={people.id}>
+		<div className="cards">
+			{people &&
+				people.map(people => (
 					<Link to={`/people/${people.id}`}>
-					<img src={people.img} alt="omg" />
+						<div className="card_items" key={people.id}>
+							<div className="card_item">
+								<img src={people.img} alt="omg" />
+								<div className="card_name">
+									<div className="card_circle"></div>
+									<h3>{people.name}</h3>
+								</div>
+							</div>
+						</div>
 					</Link>
-					<li>{people.name}</li>
-					<li>{people.gender}</li>
-				</div>
-			))}
+				))}
 		</div>
 	);
 };
 
 export interface PeopleListProps {
-	people:any
+	people: any;
 }
 export default PeopleList;
-

@@ -11,3 +11,12 @@ export const getApiResource = async (url: string) => {
 		return false;
 	}
 };
+
+export const makeConCorrentRequest = async (url:any) => {
+	const res:any = await Promise.all(url.map((res:any) => {
+			return fetch(res).then(res => res.json())
+	}))
+	return res
+}
+
+

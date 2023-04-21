@@ -1,0 +1,37 @@
+.navbar {
+	width: 100%;
+	margin: 0;
+	height: 60px;
+	display: flex;
+	ul {
+		margin: 20px;
+		padding: 0;
+
+	}
+	li {
+		display: inline-block;
+		margin: 5px;
+	}
+	a {
+		text-decoration: none;
+	}
+	&_links {
+		margin: 0;
+		width: 235px;
+	}
+	&_link {
+
+	}
+	&_modal{
+		margin-top: 5px;
+		display: flex;
+		justify-content:flex-start;
+	}
+	&_logo {
+		margin-top: 15px;
+		width: 100px;
+		display: flex;
+		justify-content: flex-end;
+	
+	}
+}
