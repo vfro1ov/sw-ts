@@ -62,8 +62,7 @@ const PeoplePage: FunctionComponent<PeoplePageProps> = () => {
 	};
 	useEffect(() => {
 		getResponse(API_PEOPLE + queryPage);
-		getSearchResponse(searchParam)
-	}, [queryPage,searchParam]);
+	}, [queryPage]);
 	return (
 		<div>
 			<div className='people_control'>
