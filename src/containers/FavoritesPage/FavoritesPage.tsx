@@ -3,7 +3,7 @@ import PeopleList from '../../components/PeoplePage/PeopleList';
 import { useAppSelector } from '../../store/hooks.ts/storeHooks';
 
 const FavoritesPage: FunctionComponent<FavoritesPageProps> = (props) => {
-	const {} = props;
+	// const {} = props;
 
 	const storeData = useAppSelector((state) => state.favorites.favorite);
 

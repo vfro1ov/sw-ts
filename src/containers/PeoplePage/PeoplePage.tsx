@@ -1,6 +1,6 @@
 import { FunctionComponent, useEffect, useState } from 'react';
 import { getApiResource } from '../../utils/network';
-import { API_PEOPLE, API_SEARCH } from '../../constants/api';
+import { API_PEOPLE, API_PERSON, API_SEARCH } from '../../constants/api';
 import PeopleList from '../../components/PeoplePage/PeopleList';
 import { getPeopleId, getPeopleImg } from '../../services/getPeopleData';
 import { getPageId } from '../../services/getPageId';
@@ -20,9 +20,25 @@ const PeoplePage: FunctionComponent<PeoplePageProps> = () => {
 	const [counterPage, setCounterPage] = useState(1);
 	const [prev, setPrev] = useState(null);
 	const [next, setNext] = useState(null);
-	const [people, setPeople] = useState<string[]>();
+	const [people, setPeople] = useState('');
 
-	
+	const getSearchResponse = async (param: string) => {
+		const res = await getApiResource(API_SEARCH + param);
+		if (res) {
+			const peopleList: any = res.results.map(({ name, url }: any) => {
+				const id = getPeopleId(url);
+				const img = getPeopleImg(id);
+
+				return {
+					id,
+					name,
+					url,
+					img,
+				};
+			});
+			setPeople(peopleList);
+		}
+	};
 
 	const getResponse = async (url: string) => {
 		const res = await getApiResource(url);
@@ -46,14 +62,15 @@ const PeoplePage: FunctionComponent<PeoplePageProps> = () => {
 	};
 	useEffect(() => {
 		getResponse(API_PEOPLE + queryPage);
-	}, [queryPage]);
+		getSearchResponse(searchParam)
+	}, [queryPage,searchParam]);
 	return (
 		<div>
 			<div className='people_control'>
-				{<SearchInput search={search} setSearchParam={setSearchParam} getResponse={getResponse} />}
+				{<SearchInput search={search} setSearchParam={setSearchParam} getSearchResponse={getSearchResponse} />}
 				<Pagination counterPage={counterPage} prev={prev} next={next} getResponse={getResponse} />
 			</div>
-				<PeopleList people={people} />
+				{people.length ? <PeopleList people={people} /> : <h2>no res</h2> }
 		</div>
 	);
 };

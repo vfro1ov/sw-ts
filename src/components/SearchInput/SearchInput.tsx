@@ -2,12 +2,12 @@ import { FunctionComponent } from 'react';
 import './SearchInput.scss'
 
 const SearchInput: FunctionComponent<SearchInputProps> = (props) => {
-	const { search, setSearchParam , getResponse} = props;
+	const { search, setSearchParam , getSearchResponse} = props;
 
 	const onChangePeople = (event) => {
 		const value: string = event.target.value;
 		setSearchParam(value);
-		getResponse(value)
+		getSearchResponse(value)
 		console.log(value);
 	};
 
@@ -26,6 +26,6 @@ const SearchInput: FunctionComponent<SearchInputProps> = (props) => {
 export interface SearchInputProps {
 	search: string;
 	setSearchParam: any;
-	getResponse: any
+	getSearchResponse: any
 }
 export default SearchInput;

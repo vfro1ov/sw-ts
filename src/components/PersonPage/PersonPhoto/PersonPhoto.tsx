@@ -1,4 +1,4 @@
-import { FunctionComponent, useState } from 'react';
+import { FunctionComponent } from 'react';
 // import { useDispatch } from 'react-redux';
 import { removeFavorites, setFavorites } from '../../../store/features/favorites';
 import rebel from './img/rebel.svg';
