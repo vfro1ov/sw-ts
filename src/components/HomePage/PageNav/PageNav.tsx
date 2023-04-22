@@ -7,7 +7,7 @@ const PageNav: FunctionComponent<PageNavProps> = (props) => {
 	const {} = props;
 	const pages = [
 		{ name: 'people', link: '/people/?page=1', bgimg: 'https://eksmo.ru/upload/iblock/8af/Exmo_0005_full_min.jpg' },
-		{ name: 'species', link: '/species', bgimg: 'https://eksmo.ru/upload/iblock/8af/Exmo_0005_full_min.jpg' },
+		{ name: 'species', link: '/species/?page=1', bgimg: 'https://eksmo.ru/upload/iblock/8af/Exmo_0005_full_min.jpg' },
 		{ name: 'films', link: '/films', bgimg: 'https://eksmo.ru/upload/iblock/8af/Exmo_0005_full_min.jpg' },
 		{ name: 'favorites', link: '/favorites', bgimg: 'https://eksmo.ru/upload/iblock/8af/Exmo_0005_full_min.jpg' },
 	];
