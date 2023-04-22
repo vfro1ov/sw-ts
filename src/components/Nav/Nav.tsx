@@ -1,5 +1,5 @@
 import { FunctionComponent, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import R2D2 from './img/r2d2.svg';
 import SW from './img/starwars.svg';
 import './Nav.scss';
@@ -8,6 +8,7 @@ import InfoModal from '../InfoModal';
 const Nav: FunctionComponent<NavProps> = (props) => {
 	const {} = props;
 	const [modalActive,setModalActive] = useState<boolean>(false)
+	const location = useLocation()
 	return (
 		<nav className="navbar">
 			<div className="navbar_logo">
@@ -26,13 +27,16 @@ const Nav: FunctionComponent<NavProps> = (props) => {
 					</li>
 				</ul>
 			</div>
-			<div className='navbar_modal'>
-				<img src={R2D2} alt="info" onClick={() => setModalActive(true)}/>
-				<InfoModal modalActive={modalActive} setModalActive={setModalActive} />
-			</div>
+			{(location.pathname === '/people/' || location.pathname.startsWith(`/people/?page=`)) && (
+        <div className="navbar_modal">
+          <img src={R2D2} alt="info" onClick={() => setModalActive(true)} />
+          <InfoModal modalActive={modalActive} setModalActive={setModalActive} />
+        </div>
+      )}
 		</nav>
 	);
 };
 
-export interface NavProps {}
+export interface NavProps {
+}
 export default Nav;

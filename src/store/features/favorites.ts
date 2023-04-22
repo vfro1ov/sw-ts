@@ -18,6 +18,7 @@ export const FavoriteSlice = createSlice({
 	initialState,
 	reducers: {
 		setFavorites: ( state, action) => {
+			///Добавление нескольких персонажей, исправить
 			const person = action.payload;
 			state.favorite = person;
 		},

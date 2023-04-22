@@ -1,9 +1,10 @@
 import { FunctionComponent } from 'react';
+import PageNav from '../../components/HomePage/PageNav';
 
 const HomePage: FunctionComponent<HomePageProps> = (props) => {
 	// const {} = props;
 	return <div>
-		Home
+		<PageNav />
 	</div>;
 };
 

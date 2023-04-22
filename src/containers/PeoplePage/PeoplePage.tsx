@@ -69,7 +69,7 @@ const PeoplePage: FunctionComponent<PeoplePageProps> = () => {
 				{<SearchInput search={search} setSearchParam={setSearchParam} getSearchResponse={getSearchResponse} />}
 				<Pagination counterPage={counterPage} prev={prev} next={next} getResponse={getResponse} />
 			</div>
-				{people.length ? <PeopleList people={people} /> : <h2>no res</h2> }
+				{people.length ? <PeopleList people={people} /> : <h2>No results</h2> }
 		</div>
 	);
 };
