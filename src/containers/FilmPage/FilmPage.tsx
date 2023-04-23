@@ -6,29 +6,37 @@ import { API_FILMS } from '../../constants/api';
 
 const FilmPage: FunctionComponent<FilmPageProps> = (props) => {
 	const {} = props;
-	const [film, setFilm] = useState('')
-	const getFilmResponse = async (url:string) => {
+	const [film, setFilm] = useState<any>();
+	const getFilmResponse = async (url: string) => {
 		const res = await getApiResource(url);
+		console.log(res)
 		if (res) {
-			const filmList = res.results.map((name:string,url:string) => {
+			const filmList = res.results.map((title: string, url: string, episode_id: string) => {
 				const id = getFilmsId(url);
-				const img = getFilmsImg(id);
+				const img = getFilmsImg(id) ;
+				console.log(id)
 				return {
-					id, img,name
-				}
-			})
-		
-		setFilm(filmList)
+					id,
+					img,
+					title,
+					url,
+					episode_id
+				};
+			});
+
+			setFilm(filmList);
 		}
-	}
+	};
 
-	useEffect(()=> {
-		getFilmResponse(API_FILMS)
-	})
+	useEffect(() => {
+		getFilmResponse(API_FILMS);
+	},[]);
 
-	return <div>
-		<Films film={film}/>
-	</div>;
+	return (
+		<div>
+			<Films film={film} />
+		</div>
+	);
 };
 
 export interface FilmPageProps {}

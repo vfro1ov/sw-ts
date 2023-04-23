@@ -38,6 +38,7 @@ const SpeciesPage: FunctionComponent<SpeciesPageProps> = (props) => {
 
 	const getSpeciesResponse = async (url) => {
 		const res = await getApiResource(url);
+		console.log(res)
 		if (res) {
 			const speciesList = res.results.map(({ name, url }) => {
 				const id = getSpeciesId(url);
