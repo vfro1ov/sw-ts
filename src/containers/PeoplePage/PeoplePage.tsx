@@ -15,8 +15,7 @@ const PeoplePage: FunctionComponent<PeoplePageProps> = () => {
 	// const {} = props;
 	const query = useQueryParams();
 	const queryPage = query.get('page');
-	const [search, setSearch] = useState<any>();
-	const [searchParam, setSearchParam] = useState('');
+	const [search, setSearch] = useState('');
 	const [counterPage, setCounterPage] = useState(1);
 	const [prev, setPrev] = useState(null);
 	const [next, setNext] = useState(null);
@@ -62,15 +61,14 @@ const PeoplePage: FunctionComponent<PeoplePageProps> = () => {
 	};
 	useEffect(() => {
 		getResponse(API_PEOPLE + queryPage);
-		getSearchResponse(searchParam)
-	}, [queryPage,searchParam]);
+	}, [queryPage]);
 	return (
 		<div>
 			<div className='people_control'>
-				{<SearchInput search={search} setSearchParam={setSearchParam} getSearchResponse={getSearchResponse} />}
+				{<SearchInput search={search} setSearch={setSearch} getSearchResponse={getSearchResponse} />}
 				<Pagination counterPage={counterPage} prev={prev} next={next} getResponse={getResponse} />
 			</div>
-				{people.length ? <PeopleList people={people} /> : <h2>no res</h2> }
+				{people.length ? <PeopleList people={people} /> : <h2>No results</h2> }
 		</div>
 	);
 };

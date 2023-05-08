@@ -1,0 +1,16 @@
+.pages {
+	margin: auto;
+	width: 1000px;
+	height: 99vh;
+	background-color: black;
+	display: grid;
+	grid-template-columns: repeat(2,1fr);
+	&_element {
+		margin: auto;
+		margin-top: 50px;
+		width: 400px;
+		height: 400px;
+		background-color: #fff;
+		background-size: auto;
+	}
+}

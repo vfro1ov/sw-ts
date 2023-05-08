@@ -8,8 +8,8 @@ const PeopleList: FunctionComponent<PeopleListProps> = (props): JSX.Element => {
 		<div className="cards">
 			{people &&
 				people.map(people => (
-					<Link to={`/people/${people.id}`}>
-						<div className="card_items" key={people.id}>
+					<Link to={`/people/${people.id}`} key={people.id}>
+						<div className="card_items" >
 							<div className="card_item">
 								<img src={people.img} alt="omg" />
 								<div className="card_name">
