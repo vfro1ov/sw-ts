@@ -56,8 +56,9 @@ console.log(storeData)
 	}, [id,storeData]);
 
 	return (
+		<>
+		<LinkBack />
 			<div className='person'>
-				<LinkBack />
 				<div className="person_photo">
 					<h3>{personName}</h3>
 					<PersonPhoto personPhoto={personPhoto} 
@@ -75,6 +76,7 @@ console.log(storeData)
 				<PersonFilm personFilm={personFilm} />
 				</div>
 			</div>
+			</>
 	);
 };
 

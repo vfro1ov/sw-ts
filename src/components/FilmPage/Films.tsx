@@ -5,7 +5,7 @@ const Films: FunctionComponent<FilmsProps> = (props) => {
 
 	return <div>
 		{	film && 
-		film.map((film) => (
+		film.map((film:any) => (
 		<li key={film.episode_id}>
 			<img src={film.img} alt="film_logo" />
 			{film.title}:{film.episode_id}</li>)

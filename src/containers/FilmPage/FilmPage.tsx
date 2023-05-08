@@ -6,7 +6,7 @@ import { API_FILMS } from '../../constants/api';
 
 const FilmPage: FunctionComponent<FilmPageProps> = (props) => {
 	const {} = props;
-	const [film, setFilm] = useState<any>();
+	const [film, setFilm] = useState([]);
 	const getFilmResponse = async (url: string) => {
 		const res = await getApiResource(url);
 		console.log(res)
